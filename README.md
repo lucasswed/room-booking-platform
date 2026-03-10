@@ -1,5 +1,10 @@
 # room-booking-platform
 
+## Project structure
+
+- `backend/`: FastAPI backend code, tests, and Python dependency files
+- `frontend/`: Frontend app folder (currently empty scaffold)
+
 ## SQLite database
 
 This project uses SQLite via SQLAlchemy.
@@ -11,7 +16,7 @@ Example (PowerShell):
 
 ```powershell
 $env:ROOM_BOOKING_DB_PATH = "$PWD\data\room_booking.sqlite3"
-uvicorn main:app --app-dir src --reload
+uvicorn main:app --app-dir backend/src --reload
 ```
 
 On startup, the app will create the DB file and initialize the schema (tables like `rooms` and `bookings`).
@@ -19,5 +24,11 @@ On startup, the app will create the DB file and initialize the schema (tables li
 ## Install deps
 
 ```powershell
-pip install -r requirements.txt
+pip install -r backend/requirements.txt
+```
+
+## Run tests
+
+```powershell
+python -m pytest -c backend/pytest.ini
 ```
